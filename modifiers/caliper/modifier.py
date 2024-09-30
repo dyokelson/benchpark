@@ -21,7 +21,7 @@ class Caliper(SpackModifier):
 
     env_var_modification(
         "CALI_CONFIG",
-        "spot(output={})".format(_cali_datafile),
+        "spot(output={}),metadata(benchpark_variants=test)".format(_cali_datafile),
         method="set",
         modes=["time"],
     )
