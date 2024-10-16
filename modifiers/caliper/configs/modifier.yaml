@@ -5,7 +5,7 @@
 
 variables:
   modifier_package_name: 'caliper'
-  modifier_spack_variant: '+caliper'
+  modifier_spack_variant: '+caliper@master'
 
 modifiers:
   - name: caliper
@@ -14,4 +14,4 @@ modifiers:
 software:
   packages:
     caliper:
-      pkg_spec: caliper+adiak+mpi~libunwind~libdw~papi
+      pkg_spec: caliper@master+adiak+mpi~libunwind~libdw~papi
