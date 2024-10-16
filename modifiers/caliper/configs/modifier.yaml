@@ -5,7 +5,7 @@
 
 variables:
   modifier_package_name: 'caliper'
-  modifier_spack_variant: '+caliper@master'
+  modifier_spack_variant: '+caliper'
 
 modifiers:
   - name: caliper
