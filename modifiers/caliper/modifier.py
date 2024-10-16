@@ -24,17 +24,18 @@ class Caliper(SpackModifier):
     _experiment_metadata_file = "{experiment_run_dir}/{experiment_name}_metadata.json"
     application_name = "{exe_name}"
     experiment_name = "{experiment_name}"
-    metadata_dict = {"application_name": application_name, "experiment_name": experiment_name}
+    #metadata_dict = {"application_name": application_name, "experiment_name": experiment_name}
     # Serializing json
-    json_object = json.dumps(metadata_dict, indent=4)
+    #json_object = json.dumps(metadata_dict, indent=4)
     # Writing to sample.json
-    with open(_experiment_metadata_file, "w") as outfile:
-        outfile.write(json_object)
+    #with open(_experiment_metadata_file, "w") as outfile:
+        #outfile.write(json_object)
 
     env_var_modification(
         "CALI_CONFIG",
-        "spot(output={}),metadata(file={})".format(_cali_datafile, _experiment_metadata_file),
-        #"spot(output={}),metadata(application={})".format(_cali_datafile, application_name),
+        #"spot(output={}),metadata(file={})".format(_cali_datafile, _experiment_metadata_file),
+        "spot(output={}),metadata(application={},experiment={})".format(_cali_datafile, 
+                                                                        application_name, experiment_name),
         method="set",
         modes=["time"],
     )
