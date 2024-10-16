@@ -19,9 +19,14 @@ class Caliper(SpackModifier):
 
     _cali_datafile = "{experiment_run_dir}/{experiment_name}.cali"
 
+    _experiment_metadata_file = "{experiment_run_dir}/{experiment_name}_metadata.json"
+
+    application_name = {name}
+
     env_var_modification(
         "CALI_CONFIG",
-        "spot(output={}),metadata(benchpark_variants=test)".format(_cali_datafile),
+        #"spot(output={}),metadata(file={})".format(_cali_datafile, _experiment_metadata_file),
+        "spot(output={}),metadata(application={})".format(_cali_datafile, application_name),
         method="set",
         modes=["time"],
     )
